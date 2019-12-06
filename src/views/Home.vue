@@ -1,21 +1,22 @@
 <template>
   <b-container fluid id="home">
-    <Search />
-    <SearchResults />
+    <div id="leftpane">
+      <img src="/img/gorilla.png"><br/>
+      Photo by Joshua J. Cotten on Unsplash
+    </div>
+    <div id="rightpane">
+      <h1>Tagomizer Pivot Browser</h1>
+      <h2><i>Discovery is seeing what everybody else has seen, and thinking what nobody else has thought.</i> - Albert Szent-Györgyi
+</h2>
+    </div>
   </b-container>
 </template>
 
 <script>
 // @ is an alias to /src
-import Search from "@/components/organisms/Search.vue";
-import SearchResults from "@/components/molecules/SearchResults.vue";
 
 export default {
-  name: "home",
-  components: {
-    Search,
-    SearchResults,
-  }
+
 };
 </script>
 
@@ -24,5 +25,14 @@ export default {
     height: 100%;
     width: 100%;
     padding: 5% 0;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+  }
+  #leftpane {
+
+  }
+  #rightpane {
+    text-align: center;
   }
 </style>

@@ -59,7 +59,12 @@
           {
             key: 'title',
             label: 'Article',
-            sortable: true
+            sortable: true,
+            formatter: (key, value, item) => {
+              console.log('xxx',item)
+              return <a href="`/resourcepiv/${item.docId}`">${item.title}</a>
+            }
+
           },
           {
             key: 'url',

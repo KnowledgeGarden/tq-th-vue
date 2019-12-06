@@ -14,10 +14,21 @@ export default new Router({
       component: Home
     },
     {
+      path: "/search",
+      name: "search",
+      component: () =>
+        import(/* webpackChunkName: "search" */ "./views/Search.vue")    },
+    {
       path: "/resources",
       name: "resources",
       component: () =>
         import(/* webpackChunkName: "resources" */ "./views/Resources.vue")
+    },
+    {
+      path: "/resourcepiv",
+      name: "resourcepivot",
+      component: () =>
+        import(/* webpackChunkName: "users" */ "./views/ResourcePivot.vue")
     },
     {
       path: "/users",
@@ -26,14 +37,33 @@ export default new Router({
         import(/* webpackChunkName: "users" */ "./views/Users.vue")
     },
     {
+      path: "/userpiv/:id",
+      name: "userpivot",
+      component: () =>
+        import(/* webpackChunkName: "users" */ "./views/UserPivot.vue")
+    },
+
+    {
       path: "/groups",
       name: "groups",
       component: () => import(/* webpackChunkName: "tags" */ "./views/Groups.vue")
     },
     {
+      path: "/grouppiv/:id",
+      name: "grouppivot",
+      component: () =>
+        import(/* webpackChunkName: "users" */ "./views/GroupPivot.vue")
+    },
+    {
       path: "/tags",
       name: "tags",
       component: () => import(/* webpackChunkName: "tags" */ "./views/Tags.vue")
+    },
+    {
+      path: "/tagpiv/id:",
+      name: "tagpivot",
+      component: () =>
+        import(/* webpackChunkName: "users" */ "./views/TagPivot.vue")
     },
     {
       path: "/pivot",

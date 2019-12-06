@@ -2,11 +2,12 @@
   <b-nav id="main--nav" tabs>
     <b-nav-text class="logo-placeholder mx-2">Pivot Browser</b-nav-text>
     <b-nav-item to="/" exact>Home</b-nav-item>
+    <b-nav-item to="/search">Search</b-nav-item>
     <b-nav-item to="/resources">Resources</b-nav-item>
     <b-nav-item to="/users">Users</b-nav-item>
     <b-nav-item to="/tags">Tags</b-nav-item>
     <b-nav-item to="/groups">Groups</b-nav-item>
-    <b-nav-item to="/pivot">Pivot</b-nav-item>
+    <!--<b-nav-item to="/pivot">Pivot</b-nav-item>-->
   </b-nav>
 </template>
 

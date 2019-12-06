@@ -9,10 +9,9 @@
           :key="item"
           pill
           size="sm"
-          variant="info"
-          @click="handleTagClick"
+          variant="outline-dark"
         >
-          {{ item }}
+          <a v-bind:href="`/tagpiv/${item.id}`">{{item.name}}</a>
         </b-button>
     </b-card>
   </b-container>

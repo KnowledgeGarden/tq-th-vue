@@ -3,7 +3,9 @@
     <h1>Groups</h1>
     <b-card class="text-center">
       <ul class="list-group">
-        <li class="list-group-item" v-for="item in items" :key="item">{{ item }}</li>
+        <li class="list-group-item" v-for="item in items" :key="item">
+          <a v-bind:href="`/grouppiv/${item.id}`">{{item.name}}</a>
+        </li>
       </ul>
     </b-card>
   </b-container>
