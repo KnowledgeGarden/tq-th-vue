@@ -14,7 +14,8 @@ export default new Vuex.Store({
     text: [],
     tags: [],
     resources: [],
-    users: []
+    users: [],
+    groups: []
   },
   getters: {
     all: state => state.all_data,
@@ -22,7 +23,8 @@ export default new Vuex.Store({
     resources: state => state.resources,
     tags: state => state.tags,
     pivot: state => state.pivot,
-    users: state => state.users
+    users: state => state.users,
+    groups: state => state.groups
   },
   mutations: {
     SET_ISFETCHING(state, bool) {
@@ -36,6 +38,9 @@ export default new Vuex.Store({
     },
     SET_USERS(state, data) {
       Vue.set(state, "users", data);
+    },
+    SET_GROUPS(state, data) {
+      Vue.set(state, "groups", data);
     },
     SET_TAGS(state, data) {
       Vue.set(state, "tags", data);
@@ -107,14 +112,14 @@ export default new Vuex.Store({
     FETCH_GROUPS: async (context, payload) => {
       const { offset, count } = payload;
       const query = `${config.APP_GROUPS}/${offset}/${count}`;
-      console.info("httpService", "getUsers", " - query: ", query);
+      console.info("httpService", "getGroups", " - query: ", query);
       try {
         context.commit("SET_ISFETCHING", true);
         const { data } = await api.get(query);
-        context.commit("SET_USERS", data);
+        context.commit("SET_GROUPS", data);
         context.commit("SET_ISFETCHING", false);
       } catch (e) {
-        console.error("FETCH_USERS error,", e);
+        console.error("FETCH_GROUPS error,", e);
         context.commit("SET_ISFETCHING", false);
       }
     },

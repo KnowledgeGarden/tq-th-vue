@@ -27,7 +27,10 @@
       }),
       filteredList() {
         return this.items.filter(tag => {
-          return tag.toLowerCase().includes(this.searchbar.toLowerCase())
+          return tag
+          //return tag.includes(this.searchbar)
+
+          ///return tag.toLowerCase().includes(this.searchbar.toLowerCase())
         });
       }
     },

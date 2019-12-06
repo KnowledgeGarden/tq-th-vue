@@ -14,11 +14,11 @@
   export default {
     mounted(){
       if (!this.$store.state.users.length) {
-        this.$store.dispatch("FETCH_USERS", { offset: 0, count: 50 });
+        this.$store.dispatch("FETCH_GROUPS", { offset: 0, count: 50 });
       }
     },
     computed: mapState({
-      items: 'users'
+      items: 'groups'
     }),
     data() {
       return {
