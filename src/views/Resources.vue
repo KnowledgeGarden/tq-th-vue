@@ -20,6 +20,9 @@
         :items="filteredList"
         :fields="fields"
       >
+        <template slot="docId" slot-scope="row">
+          <a :href="`/resourcepiv/${row.item.docId}`">View</a>
+        </template>
         <template slot="url" slot-scope="row">
           <a target="_blank" :href="row.item.url" rel="noopener noreferrer">{{ row.item.url }}</a>
         </template>
@@ -57,14 +60,13 @@
         currentPage: 1,
         fields: [
           {
+            key: 'docId',
+            label: 'Pivot',
+          }, 
+          {
             key: 'title',
             label: 'Article',
-            sortable: true//,
-//            formatter: (key, value, item) => {
-//              console.log('xxx',item)
-//              return <a href="`/resourcepiv/${item.docId}`">${item.title}</a>
-//            }
-
+            sortable: true
           },
           {
             key: 'url',
@@ -74,8 +76,12 @@
         ]
       }
     },
+    methods: {
+     
+    }
   }
 </script>
+
 
 <style scoped>
 

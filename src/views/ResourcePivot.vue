@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Title: {{ json.title }}</h2>
-    <h3>URL: <a href="${json.url}">{{ json.url}}</a></h3>
+    <h3>URL: <a :href="`${json.url}`">{{ json.url }}</a></h3>
   </div>
 </template>
 
