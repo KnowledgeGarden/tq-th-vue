@@ -25,7 +25,7 @@ export default new Router({
         import(/* webpackChunkName: "resources" */ "./views/Resources.vue")
     },
     {
-      path: "/resourcepiv",
+      path: "/resourcepiv/:id",
       name: "resourcepivot",
       component: () =>
         import(/* webpackChunkName: "users" */ "./views/ResourcePivot.vue")
@@ -60,7 +60,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "tags" */ "./views/Tags.vue")
     },
     {
-      path: "/tagpiv/id:",
+      path: "/tagpiv/:id",
       name: "tagpivot",
       component: () =>
         import(/* webpackChunkName: "users" */ "./views/TagPivot.vue")

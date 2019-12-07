@@ -24,7 +24,11 @@ export default new Vuex.Store({
     tags: state => state.tags,
     pivot: state => state.pivot,
     users: state => state.users,
-    groups: state => state.groups
+    groups: state => state.groups,
+    resourcepiv: state => state.resourcepiv,
+    userpiv: state => state.userpiv,
+    tagpiv: state => state.tagpiv,
+    grouppiv: state => state.grouppiv,
   },
   mutations: {
     SET_ISFETCHING(state, bool) {
@@ -48,6 +52,19 @@ export default new Vuex.Store({
     SET_PIVOT(state, data) {
       Vue.set(state, "pivot", data);
     },
+    SET_RESPIVOT(state, data) {
+      Vue.set(state, "resourcepiv", data);
+    },
+    SET_TAGPIVOT(state, data) {
+      Vue.set(state, "tagpiv", data);
+    },
+    SET_USRPIVOT(state, data) {
+      Vue.set(state, "userpiv", data);
+    },
+    SET_GRPPIVOT(state, data) {
+      Vue.set(state, "grouppiv", data);
+    },
+    
     SET_PRIMARY(state, data) {
       Vue.set(state, "all_data", data);
     }
@@ -138,30 +155,56 @@ export default new Vuex.Store({
         context.commit("SET_ISFETCHING", false);
       }
     },
-    getGroupPivot(user, offset, count) {
-      var query = `${config.APP_GRP_PIV}/${group}/${offset}/${count}`;
-      console.info("httpService", "getGroups", " - query: ", query);
-      return api.get(query);
-    },
-    getUserPivot(user, offset, count) {
-      var query = `${config.APP_USR_PIV}/${user}/${offset}/${count}`;
-      console.info("httpService", "getUsers", " - query: ", query);
-      return api.get(query);
-    },
-    getResourcePivot(resource, offset, count) {
-      const encodedResource = encodeURIComponent(resource);
-      const query = `${config.APP_RES_PIV}/${encodedResource}/${offset}/${count}`;
-      console.info("httpService", "getResourcePivot", " - query: ", query);
-      return api.get(query);
-    },
-    FETCH_TAG_PIVOT: async (context, payload) => {
-      const { tag, offset, count } = payload;
-      var query = `${config.APP_TAG_PIV}/${tag}/${offset}/${count}`;
-      console.info("httpService", "FETCH_TAG_PIVOT", " - query: ", query);
+    FETCH_GROUP_PIV: async (context, payload) => {
+      const {id, offset, count} = payload
+      var query = `${config.APP_GRP_PIV}/${id}/${offset}/${count}`;
+      console.info('GP', query)
       try {
         context.commit("SET_ISFETCHING", true);
         const { data } = await api.get(query);
-        context.commit("SET_PIVOT", data);
+        context.commit("SET_GRPPIVOT", data);
+        context.commit("SET_ISFETCHING", false);
+      } catch (e) {
+        console.error("FETCH_GROUP_PIV error,", e);
+        context.commit("SET_ISFETCHING", false);
+      }
+    },
+    FETCH_USER_PIV: async (context, payload) => {
+      const {id, offset, count} = payload
+      var query = `${config.APP_USR_PIV}/${id}/${offset}/${count}`;
+      try {
+        context.commit("SET_ISFETCHING", true);
+        const { data } = await api.get(query);
+        context.commit("SET_USRPIVOT", data);
+        context.commit("SET_ISFETCHING", false);
+      } catch (e) {
+        console.error("FETCH_USER_PIV error,", e);
+        context.commit("SET_ISFETCHING", false);
+      }
+    },
+    FETCH_RESOURCE_PIV: async (context, payload) => {
+      const {id, offset, count} = payload
+      //const encodedResource = encodeURIComponent(resource);
+      const query = `${config.APP_RES_PIV}/${id}/${offset}/${count}`;
+      try {
+        context.commit("SET_ISFETCHING", true);
+        const { data } = await api.get(query);
+        context.commit("SET_RESPIVOT", data);
+        context.commit("SET_ISFETCHING", false);
+      } catch (e) {
+        console.error("FETCH_USER_PIV error,", e);
+        context.commit("SET_ISFETCHING", false);
+      }
+    },
+    FETCH_TAG_PIVOT: async (context, payload) => {
+      const { id, offset, count } = payload;
+      var query = `${config.APP_TAG_PIV}/${id}/${offset}/${count}`;
+      console.info('TPQ', query)
+      try {
+        context.commit("SET_ISFETCHING", true);
+        const { data } = await api.get(query);
+        console.info('TPQA', data)
+      context.commit("SET_TAGPIVOT", data);
         context.commit("SET_ISFETCHING", false);
       } catch (e) {
         console.error("FETCH_TAG_PIVOT error,", e);

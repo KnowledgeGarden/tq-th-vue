@@ -6,7 +6,7 @@
         <b-button
           class="tagButton"
           v-for="item in filteredList"
-          :key="item"
+          :key="item.id"
           pill
           size="sm"
           variant="outline-dark"
@@ -29,7 +29,7 @@
           return tag
           //return tag.includes(this.searchbar)
 
-          ///return tag.toLowerCase().includes(this.searchbar.toLowerCase())
+          //return tag.toLowerCase().includes(this.searchbar.toLowerCase())
         });
       }
     },
