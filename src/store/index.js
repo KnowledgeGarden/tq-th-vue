@@ -83,6 +83,7 @@ export default new Vuex.Store({
         console.error("getAll error,", e);
         context.commit("SET_ISFETCHING", false);
       }
+
     },
     FETCH_TEXT: async (context, payload) => {
       const { term, offset, count } = payload;
@@ -168,6 +169,8 @@ export default new Vuex.Store({
         console.error("FETCH_GROUP_PIV error,", e);
         context.commit("SET_ISFETCHING", false);
       }
+      return context.getters.grouppiv
+
     },
     FETCH_USER_PIV: async (context, payload) => {
       const {id, offset, count} = payload
@@ -181,6 +184,8 @@ export default new Vuex.Store({
         console.error("FETCH_USER_PIV error,", e);
         context.commit("SET_ISFETCHING", false);
       }
+      return context.getters.userpiv
+
     },
     FETCH_RESOURCE_PIV: async (context, payload) => {
       const {id, offset, count} = payload
@@ -195,6 +200,8 @@ export default new Vuex.Store({
         console.error("FETCH_USER_PIV error,", e);
         context.commit("SET_ISFETCHING", false);
       }
+      return context.getters.resourcepiv
+
     },
     FETCH_TAG_PIVOT: async (context, payload) => {
       const { id, offset, count } = payload;
@@ -204,12 +211,13 @@ export default new Vuex.Store({
         context.commit("SET_ISFETCHING", true);
         const { data } = await api.get(query);
         console.info('TPQA', data)
-      context.commit("SET_TAGPIVOT", data);
+        context.commit("SET_TAGPIVOT", data);
         context.commit("SET_ISFETCHING", false);
       } catch (e) {
         console.error("FETCH_TAG_PIVOT error,", e);
         context.commit("SET_ISFETCHING", false);
       }
+      return context.getters.tagpiv
     }
   }
 });

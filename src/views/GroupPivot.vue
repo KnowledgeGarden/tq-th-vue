@@ -13,13 +13,11 @@ export default {
       json: {}
     }
   },
-  mounted() {
+  async mounted() {
     const id = this.$route.params.id;
     console.info("UA", id)
 
-    this.$store.dispatch("FETCH_GROUP_PIV", { id: id, offset: 0, count: 500 });
-    this.$data.json = this.$store.state.grouppiv
-    console.info("UP", this.$data.json)
+    this.json = await this.$store.dispatch("FETCH_GROUP_PIV", { id: id, offset: 0, count: 500 });
   },
 
 }
