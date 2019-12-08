@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <h2>Tag: {{ json.label }}</h2>
+  <b-container fluid>
+    <div id="top">
+      <h2>Tag: {{ json.label }}</h2>
+    </div>
     {{ json.documents }}
-  </div>
+  </b-container>
   
 </template>
 
@@ -16,9 +18,14 @@ export default {
   },
   async mounted() {
     const id = this.$route.params.id;
-    console.info("TA", id)
     this.json = await this.$store.dispatch("FETCH_TAG_PIVOT", { id: id, offset: 0, count: 500 });
-  },
+  }
 
 }
 </script>
+<style scoped>
+  #top {
+    text-align: left;
+    padding-left: 20px;
+  }
+</style>
