@@ -17,7 +17,7 @@ export default new Router({
       path: "/search",
       name: "search",
       component: () =>
-        import(/* webpackChunkName: "search" */ "./views/Search.vue")    },
+        import(/* webpackChunkName: "search" */ "./views/NewSearch.vue")    },
     {
       path: "/resources",
       name: "resources",
@@ -25,7 +25,7 @@ export default new Router({
         import(/* webpackChunkName: "resources" */ "./views/Resources.vue")
     },
     {
-      path: "/resourcepiv/:id",
+      path: "/respiv/:id",
       name: "resourcepivot",
       component: () =>
         import(/* webpackChunkName: "users" */ "./views/ResourcePivot.vue")

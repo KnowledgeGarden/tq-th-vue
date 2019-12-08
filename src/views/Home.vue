@@ -6,8 +6,7 @@
     </div>
     <div id="rightpane">
       <h1>Tagomizer Pivot Browser</h1>
-      <h2><i>Discovery is seeing what everybody else has seen, and thinking what nobody else has thought.</i> - Albert Szent-Györgyi
-</h2>
+      <h2><i>Discovery is seeing what everybody else has seen, and thinking what nobody else has thought.</i> - Albert Szent-Györgyi</h2>
     </div>
   </b-container>
 </template>

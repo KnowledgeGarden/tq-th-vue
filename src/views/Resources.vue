@@ -21,7 +21,7 @@
         :fields="fields"
       >
         <template slot="docId" slot-scope="row">
-          <a :href="`/resourcepiv/${row.item.docId}`">View</a>
+          <a :href="`/respiv/${row.item.docId}`">View</a>
         </template>
         <template slot="url" slot-scope="row">
           <a target="_blank" :href="row.item.url" rel="noopener noreferrer">{{ row.item.url }}</a>
@@ -76,10 +76,5 @@
         ]
       }
     }
-  }
+  };
 </script>
-
-
-<style scoped>
-
-</style>

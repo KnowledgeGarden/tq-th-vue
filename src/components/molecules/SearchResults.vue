@@ -24,14 +24,6 @@
           {
             key:'title',
             sortable: true
-          },
-          {
-            key:'user',
-            sortable: true
-          },
-          {
-            key:'tags',
-            sortable: true
           }
         ]
       }

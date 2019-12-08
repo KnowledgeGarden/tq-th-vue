@@ -98,6 +98,7 @@ export default new Vuex.Store({
         console.error("FETCH_TEXT error,", e);
         context.commit("SET_ISFETCHING", false);
       }
+      return context.getters.text
     },
     FETCH_RESOURCES: async (context, payload) => {
       const { offset, count } = payload;
@@ -191,6 +192,7 @@ export default new Vuex.Store({
       const {id, offset, count} = payload
       //const encodedResource = encodeURIComponent(resource);
       const query = `${config.APP_RES_PIV}/${id}/${offset}/${count}`;
+      console.info("FRP", query)
       try {
         context.commit("SET_ISFETCHING", true);
         const { data } = await api.get(query);
