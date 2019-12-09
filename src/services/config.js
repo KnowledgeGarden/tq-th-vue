@@ -24,7 +24,6 @@ const config = {
   HYP_USR_BY_RES: "/hyp/usrres",
   HYP_USR_BY_TAG: "/hyp/usrtag",
   HYP_USR_BY_GRP: "/hyp/usrgrp"
-
 };
 
 export default config;
