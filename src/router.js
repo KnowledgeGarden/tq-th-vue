@@ -66,6 +66,13 @@ export default new Router({
         import(/* webpackChunkName: "users" */ "./views/TagPivot.vue")
     },
     {
+      path: "/triples/",
+      name: "triples",
+      component: () =>
+        import(/* webpackChunkName: "users" */ "./views/Triples.vue")
+    },
+
+    {
       path: "/pivot",
       name: "pivot",
       component: () => import(/* webpackChunkName: "tags" */ "./views/Pivot.vue")

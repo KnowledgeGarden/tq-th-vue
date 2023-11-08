@@ -15,7 +15,8 @@ export default new Vuex.Store({
     tags: [],
     resources: [],
     users: [],
-    groups: []
+    groups: [],
+    triples: []
   },
   getters: {
     all: state => state.all_data,
@@ -49,6 +50,10 @@ export default new Vuex.Store({
     SET_TAGS(state, data) {
       Vue.set(state, "tags", data);
     },
+    SET_TRIPLES(state, data) {
+      Vue.set(state, "triples", data);
+    },
+
     SET_PIVOT(state, data) {
       Vue.set(state, "pivot", data);
     },
@@ -157,6 +162,21 @@ export default new Vuex.Store({
         context.commit("SET_ISFETCHING", false);
       }
     },
+    FETCH_TRIPLES: async (context, payload) => {
+      const { offset, count } = payload;
+      var query = `${config.APP_TRIPLES}/${offset}/${count}`;
+      console.info("httpService", "FETCH_TRIPLES", " - query: ", query);
+      try {
+        context.commit("SET_ISFETCHING", true);
+        const { data } = await api.get(query);
+        context.commit("SET_TRIPLES", data);
+        context.commit("SET_ISFETCHING", false);
+      } catch (e) {
+        console.error("FETCH_TRIPLES error,", e);
+        context.commit("SET_ISFETCHING", false);
+      }
+    },
+
     FETCH_GROUP_PIV: async (context, payload) => {
       const {id, offset, count} = payload
       var query = `${config.APP_GRP_PIV}/${id}/${offset}/${count}`;

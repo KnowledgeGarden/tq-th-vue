@@ -17,11 +17,12 @@
     ```
     npm install
     ```
-1. Run the application start script
+1. Edit .env file to reflect where the server is found
+2. Run the application start script
     ```
     npm run start
     ```
-1. Go to Chrome and see the app
+3. Go to Chrome and see the app
     ```
     http://localhost:8080
     ```

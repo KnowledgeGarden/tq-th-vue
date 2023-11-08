@@ -6,6 +6,7 @@ const config = {
   APP_USERS: "/hyp/users",
   APP_TAGS: "/hyp/tags",
   APP_GROUPS: "/hyp/groups",
+  APP_TRIPLES: "/hyp/triples",
 
   APP_GRP_PIV: "/hyp/grppiv",
   APP_TAG_PIV: "/hyp/tagpiv",

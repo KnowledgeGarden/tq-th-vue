@@ -1,11 +1,11 @@
 module.exports = {
   devServer: { 
-    disableHostCheck: true 
+    // disableHostCheck: true 
   },
   css: {
     loaderOptions: {
       sass: {
-        data: `@import "@/css/_variables.scss";`
+        additionalData: `@import "@/css/_variables.scss";`
       }
     }
   }
